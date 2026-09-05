@@ -235,7 +235,7 @@
     /* 五大分支橫向並排 */
     .branches-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(310px, 1fr));
+      grid-template-columns: repeat(5, minmax(380px, 1fr));
       gap: 16px;
       width: 100%;
       align-items: start;
@@ -246,7 +246,7 @@
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 14px;
-      padding: 14px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -419,7 +419,8 @@
       font-weight: 700;
       color: var(--primary-color);
       outline: none;
-      line-height: 1.2;
+      line-height: 1.25;
+      white-space: nowrap;
     }
 
     .relation-tag {
@@ -431,6 +432,7 @@
       outline: none;
       display: inline-block;
       margin-top: 1px;
+      white-space: nowrap;
     }
 
     .tag-gen1 { background: var(--tag-gen1-bg); color: var(--tag-gen1-color); }
@@ -444,9 +446,9 @@
       font-size: 11px;
       color: var(--text-muted);
       outline: none;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.25;
+      word-break: break-word;
+      white-space: normal;
     }
 
     .card-bottom {
@@ -474,8 +476,26 @@
     .couple-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 8px;
+      gap: 6px;
       position: relative;
+    }
+
+    .couple-row .person-card {
+      padding: 8px 8px;
+    }
+
+    .couple-row .card-top {
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .couple-row .avatar-wrapper {
+      width: 42px;
+      height: 42px;
+    }
+
+    .couple-row .person-name {
+      font-size: 14px;
     }
 
     .couple-row::after {
@@ -521,7 +541,7 @@
 
     @media (max-width: 1024px) {
       .branches-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       }
     }
 
