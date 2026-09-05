@@ -2,8 +2,8 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>家族人物關係圖（攝影師指南）- 郭氏家族</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>郭氏家族旅行人物誌（攝影師導覽指南）</title>
   <style>
     :root {
       --bg-color: #f8fafc;
@@ -59,28 +59,30 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-main);
-      padding: 20px;
-      min-width: 1400px;
+      padding: 16px;
+      overflow-x: auto;
     }
 
-    /* 頂部固定操作面板 */
+    /* 頂部操作列 */
     header {
       background: white;
-      padding: 16px 24px;
+      padding: 14px 20px;
       border-radius: 12px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       position: sticky;
-      top: 10px;
+      top: 0;
       z-index: 100;
       border: 1px solid var(--card-border);
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .header-left h1 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       display: flex;
       align-items: center;
@@ -88,27 +90,28 @@
     }
 
     .header-left .stats {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
       margin-top: 6px;
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
       align-items: center;
     }
 
     .stat-pill {
       background: #f1f5f9;
-      padding: 3px 10px;
+      padding: 3px 8px;
       border-radius: 12px;
       font-weight: 600;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .toolbar {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .search-box {
@@ -116,33 +119,33 @@
     }
 
     .search-box input {
-      padding: 8px 12px 8px 30px;
+      padding: 7px 10px 7px 28px;
       border-radius: 8px;
       border: 1px solid #cbd5e1;
       font-size: 13px;
-      width: 180px;
+      width: 170px;
       outline: none;
       transition: all 0.2s;
     }
 
     .search-box input:focus {
       border-color: var(--accent-color);
-      width: 240px;
+      width: 210px;
       box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
     }
 
     .search-box span {
       position: absolute;
-      left: 10px;
-      top: 8px;
-      font-size: 13px;
+      left: 8px;
+      top: 7px;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
     button {
-      padding: 8px 14px;
+      padding: 7px 12px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       border: 1px solid #cbd5e1;
@@ -150,7 +153,7 @@
       color: var(--text-main);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       transition: all 0.15s ease;
     }
 
@@ -169,26 +172,29 @@
       background: #1d4ed8;
     }
 
-    /* 房頭導航 Tab */
+    /* 房頭快速篩選器 */
     .filter-bar {
       display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 6px;
+      margin-bottom: 20px;
       background: #e2e8f0;
       padding: 4px;
       border-radius: 10px;
       width: fit-content;
+      max-width: 100%;
+      overflow-x: auto;
     }
 
     .filter-btn {
-      padding: 6px 14px;
-      border-radius: 8px;
+      padding: 6px 12px;
+      border-radius: 7px;
       border: none;
-      font-size: 13px;
+      font-size: 12px;
       background: transparent;
       color: #475569;
       font-weight: 600;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .filter-btn.active {
@@ -202,8 +208,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
       width: 100%;
+      min-width: fit-content;
     }
 
     /* 第一代（阿公阿嬤）區塊 */
@@ -225,11 +232,11 @@
 
     .badge-g1 { background: #ffe4e6; color: #be185d; border: 1px solid #fecdd3; }
 
-    /* 五大分支橫向並排 */
+    /* 五大分支橫向並排 (自適應排版) */
     .branches-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(5, minmax(310px, 1fr));
+      gap: 16px;
       width: 100%;
       align-items: start;
     }
@@ -238,11 +245,11 @@
     .branch-column {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 16px;
+      border-radius: 14px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.02);
       transition: all 0.2s;
     }
@@ -272,7 +279,7 @@
     .branch-sub-section {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .level-label {
@@ -288,10 +295,11 @@
     /* 人物卡片基礎樣式 */
     .person-card {
       border-radius: 10px;
-      padding: 12px;
+      padding: 10px 12px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       position: relative;
       transition: all 0.15s ease;
+      min-width: 0;
     }
 
     .person-card:hover {
@@ -299,10 +307,7 @@
       transform: translateY(-1px);
     }
 
-    /* ========================================== */
-    /* 各代淺色系背景與邊框設定 */
-    /* ========================================== */
-    /* 第一代：溫潤淺櫻粉 */
+    /* 各代淺色系背景與邊框 */
     .person-card.card-gen-1 {
       background: var(--gen1-bg);
       border: 1.5px solid var(--gen1-border);
@@ -311,7 +316,6 @@
       background: var(--gen1-note);
     }
 
-    /* 第二代：優雅淺紫藍 */
     .person-card.card-gen-2 {
       background: var(--gen2-bg);
       border: 1.5px solid var(--gen2-border);
@@ -320,7 +324,6 @@
       background: var(--gen2-note);
     }
 
-    /* 第三代：清新淺天藍 */
     .person-card.card-gen-3 {
       background: var(--gen3-bg);
       border: 1.5px solid var(--gen3-border);
@@ -329,7 +332,6 @@
       background: var(--gen3-note);
     }
 
-    /* 第四代：朝氣淺嫩綠 */
     .person-card.card-gen-4 {
       background: var(--gen4-bg);
       border: 1.5px solid var(--gen4-border);
@@ -338,10 +340,10 @@
       background: var(--gen4-note);
     }
 
-    /* 主角「我（林致宇）」：突顯暖金色邊框與底色 */
+    /* 主角「我（林致宇）」金框 */
     .person-card.is-me {
       background: var(--me-bg) !important;
-      border: 2.5px solid var(--me-border) !important;
+      border: 2px solid var(--me-border) !important;
       box-shadow: 0 4px 12px rgba(245, 158, 11, 0.18) !important;
     }
     .person-card.is-me .notes-box {
@@ -367,11 +369,10 @@
       margin-bottom: 8px;
     }
 
-    /* 1. 照片位置（位置左上） */
     .avatar-wrapper {
       position: relative;
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       flex-shrink: 0;
       cursor: pointer;
     }
@@ -405,7 +406,6 @@
       display: none;
     }
 
-    /* 卡片右上資訊區塊 */
     .info-right {
       flex: 1;
       display: flex;
@@ -414,7 +414,6 @@
       min-width: 0;
     }
 
-    /* 2. 姓名（位置右上） */
     .person-name {
       font-size: 15px;
       font-weight: 700;
@@ -423,7 +422,6 @@
       line-height: 1.2;
     }
 
-    /* 3. 稱謂關係（位置右上） */
     .relation-tag {
       align-self: flex-start;
       font-size: 11px;
@@ -442,7 +440,6 @@
     .tag-spouse { background: var(--tag-spouse-bg); color: var(--tag-spouse-color); }
     .tag-me { background: var(--tag-me-bg); color: var(--tag-me-color); font-weight: 800; }
 
-    /* 4. 職業（位置右上） */
     .person-job {
       font-size: 11px;
       color: var(--text-muted);
@@ -452,7 +449,6 @@
       text-overflow: ellipsis;
     }
 
-    /* 5. 備註空白欄位（位置中下方） */
     .card-bottom {
       border-top: 1px dashed rgba(0,0,0,0.08);
       padding-top: 6px;
@@ -460,11 +456,11 @@
 
     .notes-box {
       font-size: 11px;
-      line-height: 1.4;
+      line-height: 1.45;
       color: #334155;
       border-radius: 6px;
       padding: 5px 7px;
-      min-height: 38px;
+      min-height: 36px;
       outline: none;
       word-break: break-word;
     }
@@ -474,10 +470,10 @@
       border-radius: 4px;
     }
 
-    /* 夫妻並排組合 */
+    /* 夫妻並排組合 (確保不爆版) */
     .couple-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 8px;
       position: relative;
     }
@@ -501,16 +497,14 @@
       z-index: 2;
     }
 
-    /* 縱向排列成員清單 */
     .members-vertical-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    /* 第四代家庭小包裝塊 */
     .sub-family-block {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.75);
       border: 1px dashed #cbd5e1;
       border-radius: 10px;
       padding: 8px;
@@ -523,6 +517,20 @@
       font-size: 10px;
       font-weight: 700;
       color: #64748b;
+    }
+
+    /* 手機與窄螢幕最佳化 */
+    @media (max-width: 1024px) {
+      .branches-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 10px; }
+      header { padding: 12px; }
+      .branches-grid { grid-template-columns: 1fr; }
+      .couple-row { grid-template-columns: 1fr 1fr; }
     }
 
     /* 列印優化 */
@@ -539,17 +547,17 @@
       .branches-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr) !important;
-        gap: 8px !important;
+        gap: 6px !important;
       }
       .branch-column {
         box-shadow: none !important;
         border: 1px solid #94a3b8 !important;
-        padding: 8px !important;
+        padding: 6px !important;
         break-inside: avoid;
       }
       .person-card {
         box-shadow: none !important;
-        padding: 6px !important;
+        padding: 5px !important;
         break-inside: avoid;
       }
       @page {
@@ -567,10 +575,10 @@
       <h1>👨‍👩‍👧‍👦 郭氏家族旅行人物誌</h1>
       <div class="stats">
         <span class="stat-pill">全家族共 35 位</span>
-        <span class="stat-pill" style="background:var(--gen1-bg); color:#be185d; border:1px solid var(--gen1-border);">🌸 第一代（祖父母）：2 位</span>
-        <span class="stat-pill" style="background:var(--gen2-bg); color:#4338ca; border:1px solid var(--gen2-border);">🟣 第二代（長輩）：10 位</span>
-        <span class="stat-pill" style="background:var(--gen3-bg); color:#0369a1; border:1px solid var(--gen3-border);">🔷 第三代（平輩）：17 位</span>
-        <span class="stat-pill" style="background:var(--gen4-bg); color:#15803d; border:1px solid var(--gen4-border);">🟢 第四代（晚輩）：6 位</span>
+        <span class="stat-pill" style="background:var(--gen1-bg); color:#be185d; border:1px solid var(--gen1-border);">🌸 第一代：2 位</span>
+        <span class="stat-pill" style="background:var(--gen2-bg); color:#4338ca; border:1px solid var(--gen2-border);">🟣 第二代：10 位</span>
+        <span class="stat-pill" style="background:var(--gen3-bg); color:#0369a1; border:1px solid var(--gen3-border);">🔷 第三代：17 位</span>
+        <span class="stat-pill" style="background:var(--gen4-bg); color:#15803d; border:1px solid var(--gen4-border);">🟢 第四代：6 位</span>
         <span class="stat-pill" style="background:var(--me-bg); color:#b45309; border:1.5px solid var(--me-border); font-weight:700;">⭐ 窗口：林致宇（我）</span>
       </div>
     </div>
@@ -579,7 +587,7 @@
         <span>🔍</span>
         <input type="text" id="searchInput" placeholder="搜尋姓名、稱謂或備註..." oninput="searchPerson()">
       </div>
-      <button onclick="resetData()">重置預設</button>
+      <button onclick="resetData()">重置資料</button>
       <button onclick="exportJSON()">匯出 JSON</button>
       <button onclick="importJSON()">匯入 JSON</button>
       <button class="btn-primary" onclick="window.print()">🖨️ 列印 / 存為 PDF</button>
@@ -597,12 +605,13 @@
   </div>
 
   <div class="tree-wrapper" id="treeContainer">
-<!-- ========================================== -->
+    
+    <!-- ========================================== -->
     <!-- 第一代：阿公阿嬤（淺粉色系） -->
     <!-- ========================================== -->
-    <section class="gen-1-section" id="gen1Section" style="display: flex;">
+    <section class="gen-1-section" id="gen1Section">
       <div class="section-title-badge badge-g1">🌸 第一代（大家長 / 祖父母）</div>
-      <div class="couple-row" style="width: 540px;">
+      <div class="couple-row" style="width: 520px; max-width: 100%;">
         <!-- 阿公 -->
         <div class="person-card card-gen-1" id="p-grandpa">
           <div class="card-top">
@@ -613,7 +622,7 @@
             <div class="info-right">
               <div class="person-name" contenteditable="true">郭繼宗</div>
               <div class="relation-tag tag-gen1" contenteditable="true">阿公</div>
-              <div class="person-job" contenteditable="true">千葉自助餐一代目</div>
+              <div class="person-job" contenteditable="true">大家長</div>
             </div>
           </div>
           <div class="card-bottom">
@@ -631,7 +640,7 @@
             <div class="info-right">
               <div class="person-name" contenteditable="true">郭周玉枝</div>
               <div class="relation-tag tag-gen1" contenteditable="true">阿嬤</div>
-              <div class="person-job" contenteditable="true">天助自助者</div>
+              <div class="person-job" contenteditable="true">大家長</div>
             </div>
           </div>
           <div class="card-bottom">
@@ -647,13 +656,13 @@
     <div class="branches-grid">
 
       <!-- 1. 我家分支 (郭淑惠 & 林益安) -->
-      <div class="branch-column is-my-family" id="branch-my-family" style="display: flex;">
+      <div class="branch-column is-my-family" id="branch-my-family">
         <div class="branch-header">
           <h3>🌟 我家（郭淑惠房）</h3>
           <span class="relation-tag tag-me">窗口所在地</span>
         </div>
 
-        <!-- 第二代父母（淺紫藍色） -->
+        <!-- 第二代父母 -->
         <div class="branch-sub-section">
           <div class="level-label">第二代（父母）</div>
           <div class="couple-row">
@@ -667,7 +676,7 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">林益安</div>
                   <div class="relation-tag tag-gen2" contenteditable="true">爸爸</div>
-                  <div class="person-job" contenteditable="true">中油退休</div>
+                  <div class="person-job" contenteditable="true">退休</div>
                 </div>
               </div>
               <div class="card-bottom">
@@ -685,7 +694,7 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">郭淑惠</div>
                   <div class="relation-tag tag-gen2" contenteditable="true">媽媽</div>
-                  <div class="person-job" contenteditable="true">千葉素食<br>一代目</div>
+                  <div class="person-job" contenteditable="true">家管</div>
                 </div>
               </div>
               <div class="card-bottom">
@@ -700,7 +709,7 @@
           <div class="level-label">第三代（哥哥、我、伴侶）</div>
           <div class="members-vertical-list">
             
-            <!-- 哥哥（林政翰）- 已調到上面 -->
+            <!-- 哥哥（林政翰） -->
             <div class="person-card card-gen-3" id="p-brother">
               <div class="card-top">
                 <div class="avatar-wrapper" onclick="triggerUpload(this)">
@@ -710,7 +719,7 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">林政翰</div>
                   <div class="relation-tag tag-gen3" contenteditable="true">親哥</div>
-                  <div class="person-job" contenteditable="true">家庭教師</div>
+                  <div class="person-job" contenteditable="true">職業待填</div>
                 </div>
               </div>
               <div class="card-bottom">
@@ -718,7 +727,7 @@
               </div>
             </div>
 
-            <!-- 我（林致宇）與 女友（吳蕙君）- 在哥哥下面 -->
+            <!-- 我（林致宇）與 女友（吳蕙君） -->
             <div class="couple-row">
               <div class="person-card is-me card-gen-3" id="p-me">
                 <div class="card-top">
@@ -728,8 +737,8 @@
                   </div>
                   <div class="info-right">
                     <div class="person-name" contenteditable="true">林致宇</div>
-                    <div class="relation-tag tag-me" contenteditable="true">我</div>
-                    <div class="person-job" contenteditable="true">千葉素食<br>二代目</div>
+                    <div class="relation-tag tag-me" contenteditable="true">我（窗口）</div>
+                    <div class="person-job" contenteditable="true">總召 / 窗口</div>
                   </div>
                 </div>
                 <div class="card-bottom">
@@ -745,7 +754,7 @@
                   </div>
                   <div class="info-right">
                     <div class="person-name" contenteditable="true">吳蕙君</div>
-                    <div class="relation-tag tag-spouse" contenteditable="true">女友</div>
+                    <div class="relation-tag tag-spouse" contenteditable="true">我女友</div>
                     <div class="person-job" contenteditable="true">職業待填</div>
                   </div>
                 </div>
@@ -760,13 +769,13 @@
       </div>
 
       <!-- 2. 大舅房 (郭正宗 & 黃梅芳) -->
-      <div class="branch-column" id="branch-dajiu" style="display: flex;">
+      <div class="branch-column" id="branch-dajiu">
         <div class="branch-header">
           <h3>大舅房（郭正宗）</h3>
           <span class="relation-tag tag-gen2">長男分支</span>
         </div>
 
-        <!-- 第二代夫妻（淺紫藍） -->
+        <!-- 第二代夫妻 -->
         <div class="branch-sub-section">
           <div class="level-label">第二代（長輩）</div>
           <div class="couple-row">
@@ -779,7 +788,7 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">郭正宗</div>
                   <div class="relation-tag tag-gen2" contenteditable="true">大舅</div>
-                  <div class="person-job" contenteditable="true">竹科</div>
+                  <div class="person-job" contenteditable="true">顧問</div>
                 </div>
               </div>
               <div class="card-bottom">
@@ -796,17 +805,17 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">黃梅芳</div>
                   <div class="relation-tag tag-spouse" contenteditable="true">大舅媽</div>
-                  <div class="person-job" contenteditable="true"><br></div>
+                  <div class="person-job" contenteditable="true">退休老師</div>
                 </div>
               </div>
               <div class="card-bottom">
-                <div class="notes-box" contenteditable="true"><span style="color: rgb(100, 116, 139); font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, sans-serif; white-space: nowrap;">個性雞婆的國文老師<br>凌陽科技</span><span style="color: rgb(100, 116, 139); font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, sans-serif; white-space: nowrap;">千金</span></div>
+                <div class="notes-box" contenteditable="true">個性雞婆的國文老師，凌陽科技千金</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 第三代小孩（淺天藍） -->
+        <!-- 第三代小孩 -->
         <div class="branch-sub-section">
           <div class="level-label">第三代（表兄弟）</div>
           <div class="members-vertical-list">
@@ -819,7 +828,7 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">郭柏宏</div>
                   <div class="relation-tag tag-gen3" contenteditable="true">表哥</div>
-                  <div class="person-job" contenteditable="true">硬體工程師</div>
+                  <div class="person-job" contenteditable="true">工程師</div>
                 </div>
               </div>
               <div class="card-bottom">
@@ -836,7 +845,7 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">郭柏翰</div>
                   <div class="relation-tag tag-gen3" contenteditable="true">表哥</div>
-                  <div class="person-job" contenteditable="true"><span style="font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, sans-serif;">硬體</span><span style="font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, sans-serif;">工程師</span></div>
+                  <div class="person-job" contenteditable="true">工程師</div>
                 </div>
               </div>
               <div class="card-bottom">
@@ -848,13 +857,13 @@
       </div>
 
       <!-- 3. 小舅房 (郭全成 & 黃玉善) -->
-      <div class="branch-column" id="branch-xiaojiu" style="display: flex;">
+      <div class="branch-column" id="branch-xiaojiu">
         <div class="branch-header">
           <h3>小舅房（郭全成）</h3>
           <span class="relation-tag tag-gen2">次男分支</span>
         </div>
 
-        <!-- 第二代夫妻（淺紫藍） -->
+        <!-- 第二代夫妻 -->
         <div class="branch-sub-section">
           <div class="level-label">第二代（長輩）</div>
           <div class="couple-row">
@@ -871,7 +880,7 @@
                 </div>
               </div>
               <div class="card-bottom">
-                <div class="notes-box" contenteditable="true">跟小舅媽感情不好，<span style="font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, sans-serif;">分居多年。</span></div>
+                <div class="notes-box" contenteditable="true">跟小舅媽感情不好，分居多年。</div>
               </div>
             </div>
 
@@ -884,17 +893,17 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">黃玉善</div>
                   <div class="relation-tag tag-spouse" contenteditable="true">小舅媽</div>
-                  <div class="person-job" contenteditable="true">退休</div>
+                  <div class="person-job" contenteditable="true">家管</div>
                 </div>
               </div>
               <div class="card-bottom">
-                <div class="notes-box" contenteditable="true"><span style="font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, sans-serif;">跟小舅感情不好，分居多年。</span></div>
+                <div class="notes-box" contenteditable="true">跟小舅感情不好，分居多年。</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 第三代小孩（淺天藍） -->
+        <!-- 第三代小孩 -->
         <div class="branch-sub-section">
           <div class="level-label">第三代（表兄弟）</div>
           <div class="members-vertical-list">
@@ -907,15 +916,334 @@
                 <div class="info-right">
                   <div class="person-name" contenteditable="true">郭柏欣</div>
                   <div class="relation-tag tag-gen3" contenteditable="true">表哥</div>
-                  <div class="person-job" contenteditable="true">不明</div>
+                  <div class="person-job" contenteditable="true">學生 / 創辦人</div>
                 </div>
               </div>
-              <div c퍬㢲參Ϳ愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀屝O൶َಘ﻿⡳絗콙⡐땰֞ɓ㰰⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ戀漀愀渀∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                  㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀䜀甀漀䈀漀䄀渀∀ 愀氀琀㴀∀最䝱≲㸀਀                  㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                㰀⼀搀椀瘀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀쾐襧㱛⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㌀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀ᾈ㱟⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ⴀꭎ⮑㱞⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀蠀灟຀౦歎詟ࡢʁ㰰⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀          㰀⼀搀椀瘀㸀਀        㰀⼀搀椀瘀㸀਀      㰀⼀搀椀瘀㸀਀਀      㰀℀ⴀⴀ 㐀⸀ ✀㽙⁢⠀㄀變綉ₖ☀ 톐蹭⥿ ⴀⴀ㸀਀      㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ挀漀氀甀洀渀∀ 椀搀㴀∀戀爀愀渀挀栀ⴀ搀愀礀椀∀ 猀琀礀氀攀㴀∀搀椀猀瀀氀愀礀㨀 昀氀攀砀㬀∀㸀਀        㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ栀攀愀搀攀爀∀㸀਀          㰀栀㌀㸀✀㽙ࡢㇿ뚊ज़㳿⼀栀㌀㸀਀          㰀猀瀀愀渀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㈀∀㸀眀玕ٙ⽒㱥⼀猀瀀愀渀㸀਀        㰀⼀搀椀瘀㸀਀਀        㰀℀ⴀⴀ Ⰰ豻⭎뭙࡙﫿⭭쵽অ⃿ⴀⴀ㸀਀        㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ猀甀戀ⴀ猀攀挀琀椀漀渀∀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀氀攀瘀攀氀ⴀ氀愀戀攀氀∀㸀Ⰰ豻ࡎ矿⦕এ㳿⼀搀椀瘀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀挀漀甀瀀氀攀ⴀ爀漀眀∀㸀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㈀∀ 椀搀㴀∀瀀ⴀ搀愀礀椀稀栀愀渀最∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                  㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀堀甀䨀椀愀渀夀愀渀最∀ 愀氀琀㴀∀最䝱≲㸀਀                  㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                㰀⼀搀椀瘀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀㄀變綉㲖⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ猀瀀漀甀猀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀✀࡙㱎⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀Ḁᅤ명㱎⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀蠀᭟｡ᵢ煥彟艪쵎ౢ뛿絧ᅙ葻㽶⾖ɏ㰰⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㈀∀ 椀搀㴀∀瀀ⴀ搀愀礀椀∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                  㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀䜀甀漀匀栀甀䴀攀椀∀ 愀氀琀㴀∀最䝱≲㸀਀                  㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                㰀⼀搀椀瘀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀톐蹭㱿⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㈀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀✀㱙⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀䌀䥓瞄㲘戀爀㸀谀㱶⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀蠀홟ಀ쯿禊ᅙ͜ᩔ䭙햐㱒⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀          㰀⼀搀椀瘀㸀਀        㰀⼀搀椀瘀㸀਀਀        㰀℀ⴀⴀ ⰀॻݎⲂ⁎ⴀⴀ㸀਀        㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ猀甀戀ⴀ猀攀挀琀椀漀渀∀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀氀攀瘀攀氀ⴀ氀愀戀攀氀∀㸀Ⰰॻ⁎☀愀洀瀀㬀 Ⰰ㱎⼀搀椀瘀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀洀攀洀戀攀爀猀ⴀ瘀攀爀琀椀挀愀氀ⴀ氀椀猀琀∀㸀਀            ਀            㰀℀ⴀⴀ 孝뙴굛䑞ࡽ⳿ॻ祈⥭쵙অ⃿ⴀⴀ㸀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀猀甀戀ⴀ昀愀洀椀氀礀ⴀ戀氀漀挀欀∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀猀甀戀ⴀ昀愀洀椀氀礀ⴀ琀椀琀氀攀∀㸀똀굛ᩞ孝⁴☀愀洀瀀㬀 ᴀ皋癑㱡⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀漀甀瀀氀攀ⴀ爀漀眀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ焀椀愀漀礀椀渀最∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀堀甀儀椀愀漀夀椀渀最∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀㄀孝㱴⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㌀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀킈㱙⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀똀굛奞⭥㱞⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀蠀㕟౔䛿멏衎絟㱙⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ焀椀愀漀礀椀渀最ⴀ猀瀀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀堀椀攀儀椀儀椀渀最∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ᴀ皋癑㱡⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ猀瀀漀甀猀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀킈⭙㱙⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀眀骕࢚㱜⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀一뽏蒊㝶՟ʀ㰰⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀਀            㰀℀ⴀⴀ 慝뚟굛䑞ࡽ닿ঀ豧ज़⃿ⴀⴀ㸀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀猀甀戀ⴀ昀愀洀椀氀礀ⴀ戀氀漀挀欀∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀猀甀戀ⴀ昀愀洀椀氀礀ⴀ琀椀琀氀攀∀㸀똀굛ᩞ慝₟☀愀洀瀀㬀 开㽬ࡏ닿ঀ豧ज़㳿⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀漀甀瀀氀攀ⴀ爀漀眀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ焀椀愀漀氀椀渀最∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀堀甀儀椀愀漀䰀椀渀最∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀㄀慝㲟⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㌀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀킈㱙⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀妈൥⭔㱞⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀묀❐큙ౙϿ㭧핎ᝒ靭葸ꍶ⺐ɺ㰰⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ焀椀愀漀氀椀渀最ⴀ猀瀀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀䨀椀愀渀最娀栀攀渀最堀椀甀∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀开㽬㱏⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ猀瀀漀甀猀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀킈⭙㱙⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ऀ㩖튈㱳⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀开㭬פֿ潎爀开捬㲄搀椀瘀㸀䬀屢﵏鮀ｒ㲞⼀搀椀瘀㸀㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀਀              㰀℀ⴀⴀ Ⰰཎ楜࡛﫿ꁚॽ⃿ⴀⴀ㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀氀攀瘀攀氀ⴀ氀愀戀攀氀∀ 猀琀礀氀攀㴀∀洀愀爀最椀渀ⴀ琀漀瀀㨀㐀瀀砀㬀∀㸀Ⰰࡎ慝ྟ楜ज़㳿⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀漀甀瀀氀攀ⴀ爀漀眀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㐀∀ 椀搀㴀∀瀀ⴀ礀甀樀椀愀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀䨀椀愀渀最夀甀䨀椀愀∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀开蝬졛㱳⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㐀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ᘀ╙獵㱙⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ༀଡ଼쭧㱓⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀焀㍧蝥끥깥몛㱎⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㐀∀ 椀搀㴀∀瀀ⴀ礀甀稀栀椀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀䨀椀愀渀最夀甀娀栀椀∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀开蝬穛㱦⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㐀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ᘀ╙㱵⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ༀଡ଼쭧㱓⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀砀ⱛの㱘⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀਀            㰀℀ⴀⴀ 씀잖࡭⳿ॻ祈⥭쵙অ⃿ⴀⴀ㸀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ礀愀焀椀∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                  㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀堀甀夀愀儀椀∀ 愀氀琀㴀∀最䝱≲㸀਀                  㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                㰀⼀搀椀瘀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀㄀얊잖㱭⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㌀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀킈㱙⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀眀涀蕩歟㱘⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀攀ꭐ妎౽쏿䲀ॶ὎塧㭛խ㲀戀爀㸀Ḁᅤ명捎㶈籿罾멢㱎⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀਀          㰀⼀搀椀瘀㸀਀        㰀⼀搀椀瘀㸀਀      㰀⼀搀椀瘀㸀਀਀      㰀℀ⴀⴀ 㔀⸀ 谀㽙⁢⠀伀ᶀ₏☀ 톐쵭⥳ ⴀⴀ㸀਀      㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ挀漀氀甀洀渀∀ 椀搀㴀∀戀爀愀渀挀栀ⴀ攀爀礀椀∀ 猀琀礀氀攀㴀∀搀椀猀瀀氀愀礀㨀 昀氀攀砀㬀∀㸀਀        㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ栀攀愀搀攀爀∀㸀਀          㰀栀㌀㸀谀㽙ࡢ俿뚘ज़㳿⼀栀㌀㸀਀          㰀猀瀀愀渀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㈀∀㸀℀獫ٙ⽒㱥⼀猀瀀愀渀㸀਀        㰀⼀搀椀瘀㸀਀਀        㰀℀ⴀⴀ Ⰰ豻⭎뭙࡙﫿⭭쵽অ⃿ⴀⴀ㸀਀        㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ猀甀戀ⴀ猀攀挀琀椀漀渀∀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀氀攀瘀攀氀ⴀ氀愀戀攀氀∀㸀Ⰰ豻ࡎ矿⦕এ㳿⼀搀椀瘀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀挀漀甀瀀氀攀ⴀ爀漀眀∀㸀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㈀∀ 椀搀㴀∀瀀ⴀ攀爀礀椀稀栀愀渀最∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                  㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀夀愀渀夀愀漀䠀甀椀∀ 愀氀琀㴀∀最䝱≲㸀਀                  㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                㰀⼀搀椀瘀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀伀ᶀ㲏⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ猀瀀漀甀猀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀谀࡙㱎⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀帀쵹㱨⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀紀멙ൎ睎綕౔跿덹穛䎐瑓ɞ㰰戀爀㸀혀㭎ㅭ　　爀㱫⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㈀∀ 椀搀㴀∀瀀ⴀ攀爀礀椀∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                  㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀䜀甀漀匀栀甀娀栀攀渀∀ 愀氀琀㴀∀最䝱≲㸀਀                  㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                㰀⼀搀椀瘀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀톐쵭㱳⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㈀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀谀㱙⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀䌀䥓₄㲘戀爀㸀⭞㱞⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀☀♶葶౶Ͽgᅶ౻䛿륏፛ꭦﶈ陟ʉ㰰⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀            㰀⼀搀椀瘀㸀਀          㰀⼀搀椀瘀㸀਀        㰀⼀搀椀瘀㸀਀਀        㰀℀ⴀⴀ ⰀॻݎⲂࡎ俿纘嵧ﭝ୧륎॥⃿ⴀⴀ㸀਀        㰀搀椀瘀 挀氀愀猀猀㴀∀戀爀愀渀挀栀ⴀ猀甀戀ⴀ猀攀挀琀椀漀渀∀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀氀攀瘀攀氀ⴀ氀愀戀攀氀∀㸀Ⰰॻ⁎☀愀洀瀀㬀 Ⰰ㱎⼀搀椀瘀㸀਀          㰀搀椀瘀 挀氀愀猀猀㴀∀洀攀洀戀攀爀猀ⴀ瘀攀爀琀椀挀愀氀ⴀ氀椀猀琀∀㸀਀਀            㰀℀ⴀⴀ ㄀⸀ 섀⪐뙴굛䑞ࡽ닿ঀ豧ज़⃿ⴀⴀ㸀਀            㰀搀椀瘀 挀氀愀猀猀㴀∀猀甀戀ⴀ昀愀洀椀氀礀ⴀ戀氀漀挀欀∀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀猀甀戀ⴀ昀愀洀椀氀礀ⴀ琀椀琀氀攀∀㸀똀굛ᩞ쇿⪐⁴☀愀洀瀀㬀 ㄀쩧ᵶ࢏닿ঀ豧ज़㳿⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀漀甀瀀氀攀ⴀ爀漀眀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ礀甀焀椀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀夀愀渀夀甀儀椀∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀伀솘⪐㱴⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ最攀渀㌀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀킈㱙⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ഀ๎㱦⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀瘀⥵൙N驎͛虧㱏⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㌀∀ 椀搀㴀∀瀀ⴀ礀甀焀椀ⴀ猀瀀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀娀栀甀夀椀䠀甀椀∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀㄀쩧ᵶ㲏⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀琀椀漀渀ⴀ琀愀最 琀愀最ⴀ猀瀀漀甀猀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀栀킈⭙㱙⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ樀漀戀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀ଢ଼⭺㱞戀爀㸀㰀⼀搀椀瘀㸀਀                    㰀⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ戀漀琀琀漀洀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀渀漀琀攀猀ⴀ戀漀砀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀섀⪐Ŵ沀౑뫿⡎ⵗ୎癗ଢ଼⭺ɞ㰰⼀搀椀瘀㸀਀                  㰀⼀搀椀瘀㸀਀                㰀⼀搀椀瘀㸀਀              㰀⼀搀椀瘀㸀਀਀              㰀℀ⴀⴀ Ⰰཎ楜࡛﫿ꁚॽ⃿ⴀⴀ㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀氀攀瘀攀氀ⴀ氀愀戀攀氀∀ 猀琀礀氀攀㴀∀洀愀爀最椀渀ⴀ琀漀瀀㨀㐀瀀砀㬀∀㸀Ⰰࡎ쇿⪐ུ楜ज़㳿⼀搀椀瘀㸀਀              㰀搀椀瘀 挀氀愀猀猀㴀∀挀漀甀瀀氀攀ⴀ爀漀眀∀㸀਀                㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ挀愀爀搀 挀愀爀搀ⴀ最攀渀ⴀ㐀∀ 椀搀㴀∀瀀ⴀ樀椀渀砀椀愀渀∀㸀਀                  㰀搀椀瘀 挀氀愀猀猀㴀∀挀愀爀搀ⴀ琀漀瀀∀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ眀爀愀瀀瀀攀爀∀ 漀渀挀氀椀挀欀㴀∀琀爀椀最最攀爀唀瀀氀漀愀搀⠀琀栀椀猀⤀∀㸀਀                      㰀椀洀最 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀洀最∀ 猀爀挀㴀∀栀琀琀瀀猀㨀⼀⼀愀瀀椀⸀搀椀挀攀戀攀愀爀⸀挀漀洀⼀㜀⸀砀⼀戀漀琀琀琀猀⼀猀瘀最㼀猀攀攀搀㴀娀栀甀䨀椀渀堀椀愀渀∀ 愀氀琀㴀∀最䝱≲㸀਀                      㰀椀渀瀀甀琀 琀礀瀀攀㴀∀昀椀氀攀∀ 挀氀愀猀猀㴀∀愀瘀愀琀愀爀ⴀ椀渀瀀甀琀∀ 愀挀挀攀瀀琀㴀∀椀洀愀最攀⼀⨀∀ 漀渀挀栀愀渀最攀㴀∀瀀爀攀瘀椀攀眀䄀瘀愀琀愀爀⠀攀瘀攀渀琀Ⰰ 琀栀椀猀⤀∀㸀਀                    㰀⼀搀椀瘀㸀਀                    㰀搀椀瘀 挀氀愀猀猀㴀∀椀渀昀漀ⴀ爀椀最栀琀∀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀瀀攀爀猀漀渀ⴀ渀愀洀攀∀ 挀漀渀琀攀渀琀攀搀椀琀愀戀氀攀㴀∀琀爀甀攀∀㸀㄀䥧㲌⼀搀椀瘀㸀਀                      㰀搀椀瘀 挀氀愀猀猀㴀∀爀攀氀愀崀㑘еtion-tag tag-gen4" contenteditable="true">外甥</div>
+              <div class="card-bottom">
+                <div class="notes-box" contenteditable="true">創業家，少年幣神<br>動物系大三生<br>完成學業想當社畜</div>
+              </div>
+            </div>
+
+            <div class="person-card card-gen-3" id="p-boan">
+              <div class="card-top">
+                <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                  <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=GuoBoAn" alt="照片">
+                  <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                </div>
+                <div class="info-right">
+                  <div class="person-name" contenteditable="true">郭柏安</div>
+                  <div class="relation-tag tag-gen3" contenteditable="true">表弟</div>
+                  <div class="person-job" contenteditable="true">職業待填</div>
+                </div>
+              </div>
+              <div class="card-bottom">
+                <div class="notes-box" contenteditable="true">從小體制外教育，長大考試挫賽的人</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 大姨房 (許見陽 & 郭淑美) -->
+      <div class="branch-column" id="branch-dayi">
+        <div class="branch-header">
+          <h3>大姨房（許家）</h3>
+          <span class="relation-tag tag-gen2">長女分支</span>
+        </div>
+
+        <!-- 第二代夫妻 -->
+        <div class="branch-sub-section">
+          <div class="level-label">第二代（長輩）</div>
+          <div class="couple-row">
+            <div class="person-card card-gen-2" id="p-dayizhang">
+              <div class="card-top">
+                <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                  <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=XuJianYang" alt="照片">
+                  <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                </div>
+                <div class="info-right">
+                  <div class="person-name" contenteditable="true">許見陽</div>
+                  <div class="relation-tag tag-spouse" contenteditable="true">大姨丈</div>
+                  <div class="person-job" contenteditable="true">中醫</div>
+                </div>
+              </div>
+              <div class="card-bottom">
+                <div class="notes-box" contenteditable="true">很聰明，可以找他把脈。</div>
+              </div>
+            </div>
+
+            <div class="person-card card-gen-2" id="p-dayi">
+              <div class="card-top">
+                <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                  <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=GuoShuMei" alt="照片">
+                  <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                </div>
+                <div class="info-right">
+                  <div class="person-name" contenteditable="true">郭淑美</div>
+                  <div class="relation-tag tag-gen2" contenteditable="true">大姨</div>
+                  <div class="person-job" contenteditable="true">CIP攝影師</div>
+                </div>
+              </div>
+              <div class="card-bottom">
+                <div class="notes-box" contenteditable="true">大姨，阿公長女，愛拍照。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第三代與第四代 -->
+        <div class="branch-sub-section">
+          <div class="level-label">第三代 & 第四代</div>
+          <div class="members-vertical-list">
+            
+            <!-- 巧瑛家庭組 -->
+            <div class="sub-family-block">
+              <div class="sub-family-title">家庭：巧瑛 & 謝其慶</div>
+              <div class="couple-row">
+                <div class="person-card card-gen-3" id="p-qiaoying">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=XuQiaoYing" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">許巧瑛</div>
+                      <div class="relation-tag tag-gen3" contenteditable="true">表姐</div>
+                      <div class="person-job" contenteditable="true">手作職人</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">手作能力強，大姨長女。</div>
+                  </div>
+                </div>
+
+                <div class="person-card card-gen-3" id="p-qiaoying-sp">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=XieQiQing" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">謝其慶</div>
+                      <div class="relation-tag tag-spouse" contenteditable="true">表姐夫</div>
+                      <div class="person-job" contenteditable="true">工程師</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">巧瑛老公。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 巧齡家庭組（育有二寶） -->
+            <div class="sub-family-block">
+              <div class="sub-family-title">家庭：巧齡 & 江政修（育有二寶）</div>
+              <div class="couple-row">
+                <div class="person-card card-gen-3" id="p-qiaoling">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=XuQiaoLing" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">許巧齡</div>
+                      <div class="relation-tag tag-gen3" contenteditable="true">表姐</div>
+                      <div class="person-job" contenteditable="true">職業待填</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">大姨次女。</div>
+                  </div>
+                </div>
+
+                <div class="person-card card-gen-3" id="p-qiaoling-sp">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=JiangZhengXiu" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">江政修</div>
+                      <div class="relation-tag tag-spouse" contenteditable="true">表姐夫</div>
+                      <div class="person-job" contenteditable="true">工程師</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">巧齡老公。</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 第四代小孩 -->
+              <div class="level-label" style="margin-top:4px;">第四代（巧齡小孩）</div>
+              <div class="couple-row">
+                <div class="person-card card-gen-4" id="p-yujia">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=JiangYuJia" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">江宇珈</div>
+                      <div class="relation-tag tag-gen4" contenteditable="true">外甥女</div>
                       <div class="person-job" contenteditable="true">小朋友</div>
                     </div>
                   </div>
                   <div class="card-bottom">
-                    <div class="notes-box" contenteditable="true">創業家，少年幣神<br>動物系大三生<br>完成學業想當社畜</div>
+                    <div class="notes-box" contenteditable="true">巧齡女兒，抓拍互動。</div>
+                  </div>
+                </div>
+
+                <div class="person-card card-gen-4" id="p-yuzhi">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=JiangYuZhi" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">江宇智</div>
+                      <div class="relation-tag tag-gen4" contenteditable="true">外甥</div>
+                      <div class="person-job" contenteditable="true">小朋友</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">巧齡兒子，活力滿滿。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 雅淇 -->
+            <div class="person-card card-gen-3" id="p-yaqi">
+              <div class="card-top">
+                <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                  <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=XuYaQi" alt="照片">
+                  <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                </div>
+                <div class="info-right">
+                  <div class="person-name" contenteditable="true">許雅淇</div>
+                  <div class="relation-tag tag-gen3" contenteditable="true">表姐</div>
+                  <div class="person-job" contenteditable="true">職業待填</div>
+                </div>
+              </div>
+              <div class="card-bottom">
+                <div class="notes-box" contenteditable="true">大姨么女。</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 二姨房 (顏耀輝 & 郭淑珍) -->
+      <div class="branch-column" id="branch-eryi">
+        <div class="branch-header">
+          <h3>二姨房（顏家）</h3>
+          <span class="relation-tag tag-gen2">次女分支</span>
+        </div>
+
+        <!-- 第二代夫妻 -->
+        <div class="branch-sub-section">
+          <div class="level-label">第二代（長輩）</div>
+          <div class="couple-row">
+            <div class="person-card card-gen-2" id="p-eryizhang">
+              <div class="card-top">
+                <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                  <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=YanYaoHui" alt="照片">
+                  <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                </div>
+                <div class="info-right">
+                  <div class="person-name" contenteditable="true">顏耀輝</div>
+                  <div class="relation-tag tag-spouse" contenteditable="true">二姨丈</div>
+                  <div class="person-job" contenteditable="true">職業待填</div>
+                </div>
+              </div>
+              <div class="card-bottom">
+                <div class="notes-box" contenteditable="true">釣魚高手，出海100尺。</div>
+              </div>
+            </div>
+
+            <div class="person-card card-gen-2" id="p-eryi">
+              <div class="card-top">
+                <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                  <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=GuoShuZhen" alt="照片">
+                  <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                </div>
+                <div class="info-right">
+                  <div class="person-name" contenteditable="true">郭淑珍</div>
+                  <div class="relation-tag tag-gen2" contenteditable="true">二姨</div>
+                  <div class="person-job" contenteditable="true">CIP攝影師</div>
+                </div>
+              </div>
+              <div class="card-bottom">
+                <div class="notes-box" contenteditable="true">二姨，阿公次女。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第三代與第四代 -->
+        <div class="branch-sub-section">
+          <div class="level-label">第三代 & 第四代</div>
+          <div class="members-vertical-list">
+
+            <!-- 1. 郁琪家庭組（育有二寶） -->
+            <div class="sub-family-block">
+              <div class="sub-family-title">家庭：郁琪 & 朱益輝（育有二寶）</div>
+              <div class="couple-row">
+                <div class="person-card card-gen-3" id="p-yuqi">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=YanYuQi" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">顏郁琪</div>
+                      <div class="relation-tag tag-gen3" contenteditable="true">表姐</div>
+                      <div class="person-job" contenteditable="true">職業待填</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">二姨長女。</div>
+                  </div>
+                </div>
+
+                <div class="person-card card-gen-3" id="p-yuqi-sp">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=ZhuYiHui" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">朱益輝</div>
+                      <div class="relation-tag tag-spouse" contenteditable="true">表姐夫</div>
+                      <div class="person-job" contenteditable="true">工程師</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">郁琪老公，人在中國當工程師。</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 第四代小孩 -->
+              <div class="level-label" style="margin-top:4px;">第四代（郁琪小孩）</div>
+              <div class="couple-row">
+                <div class="person-card card-gen-4" id="p-jinxian">
+                  <div class="card-top">
+                    <div class="avatar-wrapper" onclick="triggerUpload(this)">
+                      <img class="avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=ZhuJinXian" alt="照片">
+                      <input type="file" class="avatar-input" accept="image/*" onchange="previewAvatar(event, this)">
+                    </div>
+                    <div class="info-right">
+                      <div class="person-name" contenteditable="true">朱晉賢</div>
+                      <div class="relation-tag tag-gen4" contenteditable="true">外甥</div>
+                      <div class="person-job" contenteditable="true">小朋友</div>
+                    </div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="notes-box" contenteditable="true">郁琪兒子。</div>
                   </div>
                 </div>
 
@@ -932,7 +1260,7 @@
                     </div>
                   </div>
                   <div class="card-bottom">
-                    <div class="notes-box" contenteditable="true">從小體制外教育，長大考試挫賽的人</div>
+                    <div class="notes-box" contenteditable="true">郁琪女兒。</div>
                   </div>
                 </div>
               </div>
@@ -940,7 +1268,7 @@
 
             <!-- 2. 秀容家庭組（育有二寶） -->
             <div class="sub-family-block">
-              <div class="sub-family-title">家庭：秀容 &amp; 郭小麥（育有二寶）</div>
+              <div class="sub-family-title">家庭：秀容 & 郭小麥（育有二寶）</div>
               <div class="couple-row">
                 <div class="person-card card-gen-3" id="p-xiurong">
                   <div class="card-top">
@@ -955,7 +1283,7 @@
                     </div>
                   </div>
                   <div class="card-bottom">
-                    <div class="notes-box" contenteditable="true">跟小麥曾住深山<div>養了20隻動物的人</div></div>
+                    <div class="notes-box" contenteditable="true">跟小麥曾住深山，養了20隻動物的人</div>
                   </div>
                 </div>
 
@@ -972,12 +1300,12 @@
                     </div>
                   </div>
                   <div class="card-bottom">
-                    <div class="notes-box" contenteditable="true">大概是語言天才<br>中文比我還好的歪國人</div>
+                    <div class="notes-box" contenteditable="true">大概是語言天才，中文比我還好的歪國人</div>
                   </div>
                 </div>
               </div>
 
-              <!-- 第四代小孩（淺嫩綠） -->
+              <!-- 第四代小孩 -->
               <div class="level-label" style="margin-top:4px;">第四代（秀容小孩）</div>
               <div class="couple-row">
                 <div class="person-card card-gen-4" id="p-emma">
@@ -1010,13 +1338,13 @@
                     </div>
                   </div>
                   <div class="card-bottom">
-                    <div class="notes-box" contenteditable="true"><span style="font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, sans-serif;">混血兒二號</span></div>
+                    <div class="notes-box" contenteditable="true">混血兒二號</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- 3. 顏松孝（表哥）- 已調到二姨家最下面 -->
+            <!-- 3. 顏松孝（表哥）- 二姨家最下面 -->
             <div class="person-card card-gen-3" id="p-songxiao">
               <div class="card-top">
                 <div class="avatar-wrapper" onclick="triggerUpload(this)">
@@ -1063,8 +1391,18 @@
 
     // 自動保存到 LocalStorage
     function autoSave() {
-      const htmlContent = document.getElementById('treeContainer').innerHTML;
-      localStorage.setItem('guo_family_tree_content_v2', htmlContent);
+      const data = [];
+      document.querySelectorAll('.person-card').forEach(card => {
+        data.push({
+          id: card.id,
+          name: card.querySelector('.person-name')?.innerText.trim(),
+          rel: card.querySelector('.relation-tag')?.innerText.trim(),
+          job: card.querySelector('.person-job')?.innerText.trim(),
+          notes: card.querySelector('.notes-box')?.innerText.trim(),
+          avatar: card.querySelector('.avatar-img')?.src
+        });
+      });
+      localStorage.setItem('guo_family_tree_data_v3', JSON.stringify(data));
     }
 
     // 監聽文字輸入自動保存
@@ -1072,26 +1410,38 @@
       autoSave();
     });
 
-    // 載入已儲存內容（完整保留使用者先前修改過的所有文字、照片與備註）
+    // 載入自訂內容：安全比對節點 ID 更新，絕不盲目覆蓋 innerHTML 造成排版損壞！
     window.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('guo_family_tree_content_v2') || localStorage.getItem('guo_family_tree_content');
-      if (saved) {
-        document.getElementById('treeContainer').innerHTML = saved;
-      }
-      // 僅去除所有成員稱謂兩側的【】符號，完整保留使用者在網頁變動的所有其他資料
-      document.querySelectorAll('.relation-tag').forEach(tag => {
-        if (tag.innerText.includes('【') || tag.innerText.includes('】')) {
-          tag.innerText = tag.innerText.replace(/【|】/g, '').trim();
+      // 舊版損毀的 string cache 自動清理
+      localStorage.removeItem('guo_family_tree_content_v2');
+      localStorage.removeItem('guo_family_tree_content');
+
+      const savedJson = localStorage.getItem('guo_family_tree_data_v3');
+      if (savedJson) {
+        try {
+          const data = JSON.parse(savedJson);
+          data.forEach(item => {
+            const card = document.getElementById(item.id);
+            if (card) {
+              if (item.name) card.querySelector('.person-name').innerText = item.name;
+              if (item.rel) card.querySelector('.relation-tag').innerText = item.rel.replace(/【|】/g, '');
+              if (item.job) card.querySelector('.person-job').innerText = item.job;
+              if (item.notes) card.querySelector('.notes-box').innerText = item.notes;
+              if (item.avatar && item.avatar.startsWith('data:image')) {
+                card.querySelector('.avatar-img').src = item.avatar;
+              }
+            }
+          });
+        } catch (e) {
+          console.error("Cache load error:", e);
         }
-      });
-      autoSave();
+      }
     });
 
     // 重置資料
     function resetData() {
-      if (confirm('確定要恢復預設名單嗎？您已修改的文字和上傳的照片將會重設。')) {
-        localStorage.removeItem('guo_family_tree_content_v2');
-        localStorage.removeItem('guo_family_tree_content');
+      if (confirm('確定要恢復預設名單嗎？您所做的文字修改與照片將會重設。')) {
+        localStorage.clear();
         location.reload();
       }
     }
@@ -1152,8 +1502,7 @@
           relation: card.querySelector('.relation-tag')?.innerText.trim() || '',
           job: card.querySelector('.person-job')?.innerText.trim() || '',
           notes: card.querySelector('.notes-box')?.innerText.trim() || '',
-          avatar: card.querySelector('.avatar-img')?.src || '',
-          isMe: card.classList.contains('is-me')
+          avatar: card.querySelector('.avatar-img')?.src || ''
         });
       });
       const blob = new Blob([JSON.stringify(cards, null, 2)], { type: 'application/json' });
